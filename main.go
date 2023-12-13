@@ -46,7 +46,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("%x\n", r)
+	fmt.Printf("%08x\n", r)
 }
 
 func parsePem(path string) ([]byte, error) {
@@ -70,6 +70,6 @@ func subjectMd5Of(content []byte) (r uint64, err error) {
 		return 0, errors.New("no raw subject")
 	}
 	md := md5.Sum(certificate.RawSubject)
-	r = uint64(md[0]) | uint64(md[1])<<8 | uint64(md[2])<<16 | uint64(md[3])<<24 | 0xffffffff
+	r = (uint64(md[0]) | (uint64(md[1]) << 8) | (uint64(md[2]) << 16) | (uint64(md[3]) << 24)) & 0xffffffff
 	return
 }
