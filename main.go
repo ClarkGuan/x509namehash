@@ -14,7 +14,7 @@ func main() {
 	var derPath string
 	var pemPath string
 	flag.StringVar(&derPath, "der", "", "file path in DER format")
-	flag.StringVar(&pemPath, "der", "", "file path in PEM format")
+	flag.StringVar(&pemPath, "pem", "", "file path in PEM format")
 	flag.Parse()
 
 	if len(derPath) == 0 && len(pemPath) == 0 {
