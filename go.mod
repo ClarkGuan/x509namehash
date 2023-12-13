@@ -1,3 +1,3 @@
-module x509namehash
+module github.com/ClarkGuan/x509namehash
 
-go 1.21
+go 1.10
